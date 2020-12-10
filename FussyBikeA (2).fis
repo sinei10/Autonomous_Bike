@@ -1,0 +1,39 @@
+[System]
+Name='FussyBikeA'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=5
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Angulo'
+Range=[-90 90]
+NumMFs=5
+MF1='muy_iz':'trapmf',[-67.1 -64.3 7.21 239]
+MF2='izq':'trapmf',[-37.2597885835095 -29.6597885835095 -28.9597885835095 -17.0557885835095]
+MF3='centro':'trapmf',[-1.51549682875265 0.764503171247348 0.764503171247348 1.88450317124735]
+MF4='der':'trapmf',[19.1448414376321 28.8748414376321 28.8748414376321 41.8748414376321]
+MF5='muy_der':'trapmf',[-123.268498942918 105.331501057082 152.331501057082 152.331501057082]
+
+[Output1]
+Name='VelocidadRueda'
+Range=[-5 5]
+NumMFs=5
+MF1='Muy_rapido_Derecha':'gaussmf',[2.46 4.74175898520084]
+MF2='Rapido_derecha':'gaussmf',[0.52 -1.7953911205074]
+MF3='Rapido_izquierda':'gaussmf',[0.587 1.98515856236787]
+MF4='Muy_rapido_izquierda':'gaussmf',[3.15 -4.82735729386892]
+MF5='centro':'gaussmf',[0.359 -0.02132]
+
+[Rules]
+1, 4 (1) : 1
+2, 3 (1) : 1
+4, 2 (1) : 1
+5, 1 (1) : 1
+3, 5 (1) : 1
